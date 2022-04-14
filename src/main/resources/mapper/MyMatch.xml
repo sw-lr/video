@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzbc.video.mapper.MyMatchMapper">
+
+    <update id="updateMyMatch" parameterType="com.wzbc.video.entity.UserProduction">
+        update user_production
+        set course_photo=#{coursePhoto},
+            course_name=#{courseName},
+            course_introduction=#{courseIntroduction},
+            course_belong=#{courseBelong},
+            course_type=#{courseType},
+            courseware=#{courseware},
+            course_design=#{courseDesign},
+            video=#{video}
+        where parent_id=#{parentId}
+    </update>
+    <select id="findByParentId" resultType="com.wzbc.video.entity.UserProduction">
+        select *
+        from user_production
+        where parent_id=#{parentId}
+    </select>
+    <!--<select id="findByUsername" resultType="com.wzbc.video.entity.User">-->
+        <!--select *-->
+        <!--from user-->
+        <!--where username=#{username}-->
+    <!--</select>-->
+
+    <!--<select id="findByUsernameAndPassowrd" resultType="com.wzbc.video.entity.User">-->
+        <!--select *-->
+        <!--from user-->
+        <!--where username=#{username} and password=#{password}-->
+    <!--</select>-->
+
+    <!--<select id="findById" resultType="com.wzbc.video.entity.User">-->
+        <!--select *-->
+        <!--from user-->
+        <!--where user_id=#{id}-->
+    <!--</select>-->
+
+</mapper>

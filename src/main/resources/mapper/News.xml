@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzbc.video.mapper.NewsMapper">
+    <select id="listNews" resultType="com.wzbc.video.entity.News">
+        select *
+        from news
+        <if test="name!=null and name!=''">
+            where name like "%"#{name}"%"
+        </if>
+        order by createtime desc
+    </select>
+
+    <select id="schoolListNews" resultType="com.wzbc.video.entity.News">
+        select *
+        from news
+        <if test="school!='admin'">
+            where school=#{school}
+        </if>
+        <if test="school=='admin'">
+            where school!='admin'
+        </if>
+        <if test="name!=null and name!=''">
+            and name like "%"#{name}"%"
+        </if>
+        order by createtime desc
+    </select>
+
+    <insert id="addNew">
+        insert news (id,name,createtime,child_id,school) values (#{id},#{name},now(),#{id},#{school})
+    </insert>
+
+    <delete id="deleteNew">
+        delete from news where child_id=#{id}
+    </delete>
+
+    <update id="updateNew">
+        update news set name=#{name} where child_id=#{id}
+    </update>
+
+</mapper>

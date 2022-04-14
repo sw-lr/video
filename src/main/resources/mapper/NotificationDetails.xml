@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzbc.video.mapper.NotificationDetailsMapper">
+    <select id="listNotificationDetails" resultType="com.wzbc.video.entity.NotificationDetails">
+        select *
+        from notification_details
+        where parent_id=#{id}
+    </select>
+
+    <insert id="addDetails">
+        insert notification_details (url,create_time,parent_id,parent_name,picture_id,type,name) value (#{url},now(),#{id},#{parentName},#{num},#{type},#{name})
+    </insert>
+
+    <delete id="deleteDetails">
+        delete from notification_details where parent_id=#{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzbc.video.mapper.UserMapper">
+
+    <select id="findByUsername" resultType="com.wzbc.video.entity.User">
+        select *
+        from user
+        where username=#{username}
+    </select>
+
+    <select id="findByUsernameAndPassowrd" resultType="com.wzbc.video.entity.User">
+        select *
+        from user
+        where username=#{username} and password=#{password}
+    </select>
+
+    <select id="findById" resultType="com.wzbc.video.entity.User">
+        select *
+        from user
+        where user_id=#{id}
+    </select>
+
+    <select id="findAllTeacherAdmin" resultType="com.wzbc.video.entity.User">
+        select *
+        from user
+        where roles="teacher"
+        <if test="name!=null and name!=''">
+            AND name like "%"#{name}"%"
+        </if>
+    </select>
+
+    <select id="findAllTeacher" resultType="com.wzbc.video.entity.User">
+        select *
+        from user
+        where roles="teacher" and school=#{school}
+        <if test="name!=null and name!=''">
+            AND name like "%"#{name}"%"
+        </if>
+    </select>
+
+    <select id="findAllSchool" resultType="com.wzbc.video.entity.User">
+        select *
+        from user
+        where roles="school"
+        <if test="name!=null and name!=''">
+            AND name like "%"#{name}"%"
+        </if>
+    </select>
+
+    <select id="findAllJudge" resultType="com.wzbc.video.entity.User">
+        select *
+        from user
+        where roles="judge"
+        <if test="name!=null and name!=''">
+            AND name like "%"#{name}"%"
+        </if>
+    </select>
+
+    <delete id="deleteUser">
+        delete from user where user_id=#{id}
+    </delete>
+
+    <select id="findAllTeacherAuditAdmin" resultType="com.wzbc.video.entity.UserAudit">
+        select *
+        from user_audit
+        where roles="teacher"
+        <if test="name!=null and name!=''">
+            AND name like "%"#{name}"%"
+        </if>
+    </select>
+
+    <select id="findAllTeacherAudit" resultType="com.wzbc.video.entity.UserAudit">
+        select *
+        from user_audit
+        where roles="teacher" and school=#{school}
+        <if test="name!=null and name!=''">
+            AND name like "%"#{name}"%"
+        </if>
+    </select>
+
+    <select id="findAllSchoolAuditAdmin" resultType="com.wzbc.video.entity.UserAudit">
+        select *
+        from user_audit
+        where roles="school"
+        <if test="name!=null and name!=''">
+            AND name like "%"#{name}"%"
+        </if>
+    </select>
+
+    <select id="findByid" resultType="com.wzbc.video.entity.UserAudit">
+        select *
+        from user_audit
+        where user_id=#{id}
+    </select>
+
+    <insert id="insertUser">
+        insert into user (username,password,roles,name,gender,national,native_place,political_landscape,school,department,education,id_type,birthday,email,id_number_photo,id_number_front,id_number_end) values (#{userAudit.username},#{userAudit.password},#{userAudit.roles},#{userAudit.name},#{userAudit.gender},#{userAudit.national},#{userAudit.nativePlace},#{userAudit.politicalLandscape},#{userAudit.school},#{userAudit.department},#{userAudit.education},#{userAudit.idType},#{userAudit.birthday},#{userAudit.email},#{userAudit.idNumberPhoto},#{userAudit.idNumberFront},#{userAudit.idNumberEnd})
+    </insert>
+
+    <insert id="addJudge">
+        insert into user (username,password,roles,name,gender,national,political_landscape,school,department,birthday,email) values (#{judge.username},#{judge.password},#{judge.roles},#{judge.name},#{judge.gender},#{judge.national},#{judge.politicalLandscape},#{judge.school},#{judge.department},#{judge.birthday},#{judge.email})
+    </insert>
+
+    <delete id="deleteUserAudit">
+        delete from user_audit where user_id=#{id}
+    </delete>
+
+    <update id="UserNoPass">
+        update user_audit set state="1" where user_id=#{id}
+    </update>
+
+</mapper>
