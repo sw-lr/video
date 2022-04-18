@@ -4,8 +4,9 @@
     <select id="listNotification" resultType="com.wzbc.video.entity.Notification">
         select *
         from notification
+        where school="admin"
         <if test="name!=null and name!=''">
-            where name like "%"#{name}"%"
+            and name like "%"#{name}"%"
         </if>
         order by createtime desc
     </select>

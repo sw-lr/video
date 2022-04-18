@@ -12,4 +12,8 @@ import java.util.List;
 @Repository
 public interface ProductionMapper extends BaseMapper<Production> {
     IPage<Production> listProduction(Page<Production>page,String name);
+    int deleteProduction(Long id);
+    int updateJudge(Long id,Long production);
+    int judge(Long id);
+    IPage<Production>waitJudge(Page<Production>page,String name,String judge);
 }

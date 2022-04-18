@@ -109,4 +109,7 @@
         update user_audit set state="1" where user_id=#{id}
     </update>
 
+    <select id="judgeList" resultType="com.wzbc.video.entity.User">
+        select * from user where roles="judge"
+    </select>
 </mapper>

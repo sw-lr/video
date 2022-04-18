@@ -9,5 +9,8 @@
         where parent_id=#{id}
     </select>
 
-
+    <delete id="deleteDetails">
+        delete from production_details where parent_id=#{id}
+    </delete>
+    <update id="judge">update production_details set level=#{level},content=#{content},design=#{design},specification=#{specification},innovation=#{innovation} where parent_id=#{id}</update>
 </mapper>

@@ -11,4 +11,8 @@ import java.util.List;
 @Repository
 public interface ProductionDetailsMapper extends BaseMapper<ProductionDetails> {
     List<ProductionDetails> listProductionDetails(Long id);
+
+    int deleteDetails(Long id);
+
+    int judge(Long id,String level,String content,String design,String specification,String innovation);
 }

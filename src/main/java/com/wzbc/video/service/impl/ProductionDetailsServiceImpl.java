@@ -18,4 +18,14 @@ public class ProductionDetailsServiceImpl extends ServiceImpl<ProductionDetailsM
     public List<ProductionDetails> list(Long id) {
         return productionDetailsMapper.listProductionDetails(id);
     }
+
+    @Override
+    public int deleteDetails(Long id) {
+        return productionDetailsMapper.deleteDetails(id);
+    }
+
+    @Override
+    public int judge(Long id, String level, String content, String design, String specification, String innovation) {
+        return productionDetailsMapper.judge(id,level,content,design,specification,innovation);
+    }
 }

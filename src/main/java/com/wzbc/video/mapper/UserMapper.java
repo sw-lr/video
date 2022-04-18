@@ -63,4 +63,7 @@ public interface UserMapper extends BaseMapper<User> {
 
     //审核不通过的账号，修改状态
     int UserNoPass(int id);
+
+    List<User> judgeList();
+
 }

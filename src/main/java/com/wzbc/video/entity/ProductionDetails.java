@@ -33,6 +33,16 @@ public class ProductionDetails {
 
     private Long parentId;
 
+    private String level;
+
+    private String content;
+
+    private String design;
+
+    private String specification;
+
+    private String innovation;
+
     public Long getId() {
         return id;
     }
@@ -103,5 +113,46 @@ public class ProductionDetails {
 
     public void setParentId(Long parentId) {
         this.parentId = parentId;
+    }
+
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getDesign() {
+        return design;
+    }
+
+    public void setDesign(String design) {
+        this.design = design;
+    }
+
+    public String getSpecification() {
+        return specification;
+    }
+
+    public void setSpecification(String specification) {
+        this.specification = specification;
+    }
+
+    public String getInnovation() {
+        return innovation;
+    }
+
+    public void setInnovation(String innovation) {
+        this.innovation = innovation;
     }
 }

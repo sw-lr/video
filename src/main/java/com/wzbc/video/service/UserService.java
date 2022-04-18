@@ -72,4 +72,6 @@ public interface UserService extends IService<User> {
 
     //删除审核列表
     int deleteUserAudit(int id);
+
+    List<User> judgeList();
 }

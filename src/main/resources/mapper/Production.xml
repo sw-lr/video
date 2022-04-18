@@ -11,5 +11,19 @@
         </if>
     </select>
 
+    <delete id="deleteProduction">
+        delete from production where id=#{id}
+    </delete>
 
+    <update id="updateJudge">
+        update production set judge=#{id} where id=#{production}
+    </update>
+
+    <update id="judge">
+        update production set judge="" where id=#{id}
+    </update>
+
+    <select id="waitJudge" resultType="com.wzbc.video.entity.Production">
+        select * from production where judge=#{judge} <if test="name!=null and name!=''">and name like "%"#{name}"%"</if>
+    </select>
 </mapper>

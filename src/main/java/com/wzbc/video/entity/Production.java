@@ -23,6 +23,10 @@ public class Production {
 
     private String url;
 
+    private String total;
+
+    private String judge;
+
     public Long getId() {
         return id;
     }
@@ -61,5 +65,21 @@ public class Production {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public String getJudge() {
+        return judge;
+    }
+
+    public void setJudge(String judge) {
+        this.judge = judge;
     }
 }

@@ -201,4 +201,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public List<UserProduction> infoMyMatch(String token) {
         return myMatchMapper.findByParentId(Long.parseLong(tokenUtil.getToken(token)));
     }
+
+    @Override
+    public List<User> judgeList() {
+        return userMapper.judgeList();
+    }
+
 }
