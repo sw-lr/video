@@ -10,6 +10,7 @@ import com.wzbc.video.entity.UserAudit;
 import com.wzbc.video.entity.UserProduction;
 import com.wzbc.video.mapper.MyMatchMapper;
 import com.wzbc.video.mapper.UserMapper;
+import com.wzbc.video.params.AddUser;
 import com.wzbc.video.params.Judge;
 import com.wzbc.video.params.MyMatch;
 import com.wzbc.video.params.PersonalCenter;
@@ -207,4 +208,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return userMapper.judgeList();
     }
 
+    @Override
+    public int addUser(AddUser addUser) {
+        return userMapper.addUser(addUser);
+    }
 }

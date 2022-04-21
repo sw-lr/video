@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wzbc.video.entity.User;
 import com.wzbc.video.entity.UserAudit;
+import com.wzbc.video.params.AddUser;
 import com.wzbc.video.params.Judge;
 import com.wzbc.video.params.PersonalCenter;
 import org.apache.ibatis.annotations.Mapper;
@@ -64,6 +65,8 @@ public interface UserMapper extends BaseMapper<User> {
     //审核不通过的账号，修改状态
     int UserNoPass(int id);
 
+    //评委列表
     List<User> judgeList();
 
+    int addUser(@Param("addUser")AddUser addUser);
 }

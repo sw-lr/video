@@ -112,4 +112,8 @@
     <select id="judgeList" resultType="com.wzbc.video.entity.User">
         select * from user where roles="judge"
     </select>
+
+    <insert id="addUser">
+        insert into user_audit (username,password,roles,name,gender,national,native_place,political_landscape,school,department,education,id_type,birthday,email,id_number_photo,state) values (#{addUser.username},#{addUser.password},#{addUser.roles},#{addUser.name},#{addUser.gender},#{addUser.national},#{addUser.nativePlace},#{addUser.politicalLandscape},#{addUser.school},#{addUser.department},#{addUser.education},#{addUser.idType},#{addUser.birthday},#{addUser.email},#{addUser.idNumberPhoto},0)
+    </insert>
 </mapper>

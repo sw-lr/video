@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.wzbc.video.entity.User;
 import com.wzbc.video.entity.UserAudit;
 import com.wzbc.video.entity.UserProduction;
+import com.wzbc.video.params.AddUser;
 import com.wzbc.video.params.Judge;
 import com.wzbc.video.params.MyMatch;
 import com.wzbc.video.params.PersonalCenter;
@@ -73,5 +74,8 @@ public interface UserService extends IService<User> {
     //删除审核列表
     int deleteUserAudit(int id);
 
+    //评委列表
     List<User> judgeList();
+
+    int addUser(AddUser addUser);
 }

@@ -5,6 +5,7 @@ import com.wzbc.video.api.CommonResult;
 import com.wzbc.video.entity.Notification;
 import com.wzbc.video.entity.User;
 import com.wzbc.video.entity.UserAudit;
+import com.wzbc.video.params.AddUser;
 import com.wzbc.video.params.Judge;
 import com.wzbc.video.params.MyMatch;
 import com.wzbc.video.params.PersonalCenter;
@@ -86,6 +87,12 @@ public class TeacherController {
     public CommonResult schoolAuditList(@RequestParam(value = "name") String name,@RequestParam(value = "current")int current,@RequestParam(value = "size")int size){
         Page<UserAudit> page=new Page<>(current,size);
         return CommonResult.success(userService.schoolAuditListAdmin(page,name));
+    }
+
+    @PostMapping("/register")
+    public CommonResult register(@RequestBody AddUser addUser){
+        userService.addUser(addUser);
+        return CommonResult.success("注册成功");
     }
 
     @GetMapping("/userPass")
